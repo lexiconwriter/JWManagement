@@ -13,9 +13,6 @@ RouteManager.registerEntity('dashboard', {
 RouteManager.registerEntity('dashboard.myProjects', {
   details: 'myProjects'
 })
-RouteManager.registerEntity('dashboard.missingShiftReports', {
-  details: 'missingShiftReports'
-})
 RouteManager.registerEntity('dashboard.upcomingShifts', {
   details: 'upcomingShifts'
 })
@@ -108,12 +105,6 @@ RouteManager.registerProjectEntity('vessel.visit.language', {
     link: 'vessel.visit.details'
   }
 })
-RouteManager.registerProjectEntity('note', {
-  search: 'notes',
-  insert: 'notes/new',
-  details: 'notes/:noteId',
-  update: 'notes/:noteId/:key'
-})
 
 RouteManager.registerProjectEntity('project.support', {
   details: 'support'
@@ -196,26 +187,6 @@ FlowRouter.route('/:projectId/settings', {
     doIfLoggedIn(() => {
       Session.set('parent', 'project.details')
       BlazeLayout.render('mainLayout', { content: 'settings' })
-    })
-  }
-})
-
-FlowRouter.route('/:projectId/reports', {
-  name: 'reports',
-  action () {
-    doIfLoggedIn(() => {
-      Session.set('parent', 'project.details')
-      BlazeLayout.render('mainLayout', { content: 'reports' })
-    })
-  }
-})
-
-FlowRouter.route('/:projectId/store', {
-  name: 'store',
-  action () {
-    doIfLoggedIn(() => {
-      Session.set('parent', 'project.details')
-      BlazeLayout.render('mainLayout', { content: 'store' })
     })
   }
 })
